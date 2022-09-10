@@ -1,45 +1,60 @@
-import { StyleSheet, Text, View, Scroll, ScrollView } from "react-native";
 import React, {useEffect, useState} from "react";
+import {View,StyleSheet,Text,SafeAreaView, FlatList} from "react-native";
 import Article from "../Component/Article";
-import axios from "axios"
+import axios from "axios";
+
 
 const HomeScreen = () => {
+    const [articles,setArticles] = useState([]);
+    const getNews = () => {
+        axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=c1ef3317ba2e48c8aeab23ad33adb6e9',{
+            params:{
+                category: "technology",
+            }
+        })
+            .then( (response) =>{
+                // handle success
+                setArticles(response.data.articles);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+    }
 
-    const [article, setArticle] = useState([]);
+    useEffect(() => {
+        getNews();
+    },[]);
 
-  const getNews = () => {
-    // Make a request for a user with a given ID
-    axios
-      .get("https://newsapi.org/v2/top-headlines?country=us&apiKey=845db4aa51d64d69ba55be62203c9cf4", {
-        params: {
-            category: "technology"
-        }
-      })
-      .then((response)=> {
-        // handle success
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      });
-  };
+    return(
+        <SafeAreaView style={styles.container}>
+            <FlatList
+                data={articles}
+                renderItem = {({item}) =>
+                    <Article
+                        urlToImage = {item.urlToImage}
+                        title = {item.title}
+                        description = {item.description}
+                        author = {item.author}
+                        publishedAt = {item.publishedAt}
+                        sourceName = {item.source.name}
+                        url={item.url}
+                    />}
+                keyExtractor = {(item) => item.title}
+            />
 
-
-
-useEffect(() => {
-    getNews();
-},[] )
-  return (
-    <ScrollView style={styles.container}>
-      <Article />
-    </ScrollView>
-  );
-};
+        </SafeAreaView>
+    )
+}
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: '#fff',
+    }
+})
