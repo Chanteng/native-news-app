@@ -7,9 +7,9 @@ import axios from "axios";
 const HomeScreen = () => {
     const [articles,setArticles] = useState([]);
     const getNews = () => {
-        axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=c1ef3317ba2e48c8aeab23ad33adb6e9',{
+        axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=845db4aa51d64d69ba55be62203c9cf4',{
             params:{
-                category: "technology",
+                category: "sports",
             }
         })
             .then( (response) =>{
