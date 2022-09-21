@@ -13,6 +13,7 @@ const GetStarted = ({ navigation }) => {
           <Text style={styles.btntxt}>Get Started</Text>
         </TouchableOpacity>
       </View>
+    
     </View>
   );
 };

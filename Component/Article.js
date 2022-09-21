@@ -25,18 +25,20 @@ const Article = (props) => {
             <Text style={styles.title}>{props.title}</Text>
 
         {/*    description */}
-            <Text style={styles.description} numberOfLines={3}>
+            <Text style={styles.description} numberOfLines={2}>
                 {props.description}
             </Text>
 
+            <View style={{flexDirection: "row", justifyContent: "space-between"}}>
             <View style={styles.data}>
-                <Text style={styles.heading}>by: <Text style={styles.author}>{props.author}</Text></Text>
-                <Text style={styles.date}>{moment(props.publishedAt).format("MMM Do YY") }</Text>
+                {/* <Text style={styles.heading}>By: <Text style={styles.author}>{props.author}</Text></Text> */}
+                <Text style={styles.date}>Date: <Text>{moment(props.publishedAt).format("MM/DD/YY") }</Text></Text>
             </View>
 
         {/*     source */}
             <View style={{marginTop: 10}}>
-                <Text>source: <Text style={styles.source}>{props.sourceName}</Text></Text>
+                <Text style={styles.source}>Source: <Text style={styles.source}>{props.sourceName}</Text></Text>
+            </View>
             </View>
             </View>
         </Pressable>
@@ -60,10 +62,10 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     image:{
-        height: 200,
+        height: 150,
         width: "100%",
         borderTopLeftRadius: 40,
-        borderTopRightRadius: 40
+        borderTopRightRadius: 40,
     },
     title:{
         fontSize: 18,
@@ -95,6 +97,6 @@ const styles = StyleSheet.create({
     source:{
         color: "#e63946",
         fontWeight: "bold",
-        fontSize: 18
+        fontSize: 15
     }
 })
