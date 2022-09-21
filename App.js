@@ -11,6 +11,7 @@ import Entertainment from "./Screens/Entertainment";
 import Health from "./Screens/Health";
 import Science from "./Screens/Science";
 import Sports from "./Screens/Sports";
+import GetStarted from "./Screens/GetStarted";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -23,9 +24,11 @@ function Tabs() {
     <Tab.Navigator
     screenOptions={{
       tabBarActiveTintColor: "red",
+      headerShown: false
+    
     }}
   >
-    <Tab.Screen
+    <Tab.Screen 
       name="Home"
       component={HomeScreen}
       options={{
@@ -58,8 +61,15 @@ function Tabs() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <Stack.Navigator  initialRouteName={GetStarted}
+            screenOptions={{headerShown: false}} >
+      <Stack.Screen name="GetStarted" component={GetStarted}  />
+        {/* <Stack.Screen
+          name="Tabs"
+          component={Tabs}
+          options={{ headerShown: false }}
+        /> */}
+         <Stack.Screen
           name="Tabs"
           component={Tabs}
           options={{ headerShown: false }}

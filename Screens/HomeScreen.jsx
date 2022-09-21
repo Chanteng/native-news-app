@@ -4,7 +4,7 @@ import Article from "../Component/Article";
 import axios from "axios";
 
 
-const HomeScreen = () => {
+const HomeScreen = (navigation) => {
     const [articles,setArticles] = useState([]);
     const getNews = () => {
         axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=845db4aa51d64d69ba55be62203c9cf4',{
@@ -31,6 +31,7 @@ const HomeScreen = () => {
 
     return(
         <SafeAreaView style={styles.container}>
+            <Text style={{fontSize: 25, alignSelf: "center", marginTop: 50 }}>Welcome to Our News App</Text>
             <FlatList
                 data={articles}
                 renderItem = {({item}) =>
