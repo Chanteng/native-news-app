@@ -1,33 +1,83 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
 import HomeScreen from "./Screens/HomeScreen";
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SearchScreen from "./Screens/SearchScreen";
-import { Entypo,FontAwesome } from '@expo/vector-icons';
+import Headline from "./Screens/Headline";
+import Tech from "./Screens/Tech";
+import Business from "./Screens/Business";
+import Entertainment from "./Screens/Entertainment";
+import Health from "./Screens/Health";
+import Science from "./Screens/Science";
+import Sports from "./Screens/Sports";
+import { Entypo, FontAwesome } from "@expo/vector-icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator();
+
+const Stack = createNativeStackNavigator();
+
+function Tabs() {
+  return (
+    <Tab.Navigator
+    screenOptions={{
+      tabBarActiveTintColor: "red",
+    }}
+  >
+    <Tab.Screen
+      name="Home"
+      component={HomeScreen}
+      options={{
+        tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+      }}
+    />
+    <Tab.Screen
+      name="Search"
+      component={SearchScreen}
+      options={{
+        tabBarIcon: () => (
+          <FontAwesome name="search" size={24} color="black" />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name="Headline"
+      component={Headline}
+      options={{
+        tabBarIcon: () => (
+          <FontAwesome name="newspaper-o" size={24} color="black" />
+        ),
+      }}
+    />
+     
+  </Tab.Navigator>
+  )
+}
+
 export default function App() {
   return (
-
-        <NavigationContainer>
-            <Tab.Navigator screenOptions={{
-                tabBarActiveTintColor: "red"
-            }}>
-                <Tab.Screen name="Home" component={HomeScreen} options={{
-                    tabBarIcon: () =><Entypo name="home" size={24} color="black" />
-                }}/>
-                <Tab.Screen name="Search" component={SearchScreen} options={{
-                    tabBarIcon: () =><FontAwesome name="search" size={24} color="black" />
-                }}/>
-            </Tab.Navigator>
-        </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Tabs"
+          component={Tabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="Tech" component={Tech} />
+        <Stack.Screen name="Business" component={Business} />
+        <Stack.Screen name="Entertainment" component={Entertainment} />
+        <Stack.Screen name="Health" component={Health} />
+        <Stack.Screen name="Sports" component={Sports} />
+        <Stack.Screen name="Science" component={Science} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 });
