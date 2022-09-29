@@ -5,8 +5,12 @@ import LottieView from "lottie-react-native";
 const GetStarted = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <LottieView source={require("../Images/global.json")} autoPlay />
       <Text style={styles.text}>Hello! Welcome to TV3 News App</Text>
+
+      <View style={{flex: 0.6}}>
+      <LottieView source={require("../Images/global.json")} autoPlay />
+      </View>
+    
    
       <View style={styles.btn}>
         <TouchableOpacity onPress={() => navigation.navigate("Tabs")}>
@@ -26,13 +30,13 @@ const styles = StyleSheet.create({
     padding: 20
   },
   text: {
-    flex: 1,
+    flex: 0.2,
     fontSize: 20,
     alignSelf: "center",
    marginTop: 70
   },
   btn: {
-    flex: 1,
+    flex: 0.2,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 50,

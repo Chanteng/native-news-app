@@ -12,27 +12,27 @@ const Headline = ({navigation}) => {
       <View style={{flex: 0.5}}>
       <TouchableOpacity onPress={() => navigation.navigate("Business")}>
         <Text style={{fontSize: 25,}}>Business</Text>
-        <Text style={{fontSize: 16, fontWeight: "100", color: "green" }}>Click here for Business news only</Text>
+        <Text style={{fontSize: 16, fontWeight: "100", color: "red" }}>Click here for Business news only</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Entertainment")}>
         <Text style={{fontSize: 25, marginTop: 25}}>Entertainment</Text>
-        <Text style={{fontSize: 16, fontWeight: "100", color: "green" }}>Click here for Entertainment news only</Text>
+        <Text style={{fontSize: 16, fontWeight: "100", color: "red" }}>Click here for Entertainment news only</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Health")}>
         <Text style={{fontSize: 25, marginTop: 25}}>Health</Text>
-        <Text style={{fontSize: 16, fontWeight: "100", color: "green" }}>Click here for Health news only</Text>
+        <Text style={{fontSize: 16, fontWeight: "100", color: "red" }}>Click here for Health news only</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Science")}>
         <Text style={{fontSize: 25, marginTop: 25}}>Science</Text>
-        <Text style={{fontSize: 16, fontWeight: "100", color: "green" }}>Click here for Science news only</Text>
+        <Text style={{fontSize: 16, fontWeight: "100", color: "red" }}>Click here for Science news only</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Sports")}>
         <Text style={{fontSize: 25, marginTop: 25}}>Sports</Text>
-        <Text style={{fontSize: 16, fontWeight: "100", color: "green" }}>Click here for Sports news only</Text>
+        <Text style={{fontSize: 16, fontWeight: "100", color: "red" }}>Click here for Sports news only</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Tech")}>
         <Text style={{fontSize: 25, marginTop: 25}}>Technology</Text>
-        <Text style={{fontSize: 16, fontWeight: "100", color: "green" }}>Click here for Technology news only</Text>
+        <Text style={{fontSize: 16, fontWeight: "100", color: "red" }}>Click here for Technology news only</Text>
       </TouchableOpacity>
       </View>
       <View style={{flex: 0.5}}>

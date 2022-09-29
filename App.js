@@ -12,6 +12,7 @@ import Health from "./Screens/Health";
 import Science from "./Screens/Science";
 import Sports from "./Screens/Sports";
 import GetStarted from "./Screens/GetStarted";
+import About from "./Screens/About";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -50,6 +51,16 @@ function Tabs() {
       options={{
         tabBarIcon: () => (
           <FontAwesome name="newspaper-o" size={24} color="black" />
+        ),
+      }}
+    />
+
+<Tab.Screen
+      name="About"
+      component={About}
+      options={{
+        tabBarIcon: () => (
+          <FontAwesome name="user" size={24} color="black" />
         ),
       }}
     />

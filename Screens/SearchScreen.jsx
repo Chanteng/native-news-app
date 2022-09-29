@@ -33,14 +33,18 @@ const SearchScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 25, alignSelf: "center", marginVertical: 50,  }}>
-        Type to search for your news
+      <Text style={{ fontSize: 25, alignSelf: "center", marginTop: 50,  color: "red",
+            fontWeight: "bold" }}>
+       Search for your News
       </Text>
+      <View style={{paddingHorizontal: 16, marginTop: 30,}}>
       <SearchBar
         searchText={searchText}
         setSearchText={setSearchText}
         onSubmit={searchArticles}
       />
+      </View>
+     
       <FlatList
         data={articles}
         renderItem={({ item }) => (
@@ -65,5 +69,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    padding: 16
   },
 });
